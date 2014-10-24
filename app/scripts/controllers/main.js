@@ -10,7 +10,7 @@
 
 var subreddit = 'cats';
 var imageArray;
-var currentPage = 1;
+var currentPage = 0;
 function ajaxCall(page) {
 	$.ajax({
 	authorization: '8c4fdcec50df594',
@@ -43,14 +43,21 @@ angular.module('imgurRandomApp')
 	.controller('MainCtrl',['$scope', function ($scope) {
 		$scope.enterSubreddit = function () {
 			subreddit = $scope.subreddit;
-			console.log('test');
-			currentPage = 1;
+			currentPage = 0;
 			ajaxCall(currentPage);
 		};
 		$scope.loadMore = function () {
-			console.log('testing');
 			currentPage = currentPage + 1;
 			ajaxCall(currentPage);
 
 		};
+		$scope.loadPrevious = function() {
+			if (currentPage == 0) {
+				alert('Already on First Page! Click Next!');
+			}
+			else {
+				currentPage = currentPage - 1;
+				ajaxCall(currentPage);
+			}
+		}
 	}]);
