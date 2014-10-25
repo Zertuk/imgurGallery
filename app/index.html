@@ -22,7 +22,7 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div ng-controller = 'MainCtrl'>
+    <div ng-controller = 'SearchCtrl'>
       <div  class = "container">
         <form role = "form" ng-submit = "enterSubreddit()">
           <div class = "row">
@@ -34,13 +34,17 @@
             </div>
           </div>
         </form>
+        <input checked = "checked" name = "sort" type = "radio">New</label>
+        <input name = "sort" type = "radio">Top</label>
       </div>
+    </div>
 
 
       <div class = "test">
         <row id = "imageContainer">
         </row>
       </div>
+    <div ng-controller = "PageCtrl">
       <div class = "container">
         <input value = "Last" type = "submit" class = "btn btn-primary" ng-click = "loadPrevious()">
         <input value = "Next" type = "submit" class = "btn btn-primary" ng-click = "loadMore()">

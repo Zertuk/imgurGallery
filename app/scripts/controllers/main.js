@@ -12,6 +12,8 @@ var subreddit = 'cats';
 var imageArray;
 var currentPage = 0;
 var testing;
+
+//ajax call for imgur api to get the gallery needed, temporary
 function ajaxCall(page) {
 	$.ajax({
 	authorization: '8c4fdcec50df594',
@@ -41,14 +43,22 @@ function ajaxCall(page) {
 };
 
 
-
 angular.module('imgurRandomApp')
-	.controller('MainCtrl',['$scope', function ($scope) {
+
+//controls all input relating to searching: subreddit, new/top, order
+	.controller('SearchCtrl',['$scope', function ($scope) {
 		$scope.enterSubreddit = function () {
 			subreddit = $scope.subreddit;
 			currentPage = 0;
 			ajaxCall(currentPage);
 		};
+	}]);
+
+
+angular.module('imgurRandomApp')
+
+//controls moving forward/back through pages
+	.controller('PageCtrl', ['$scope', function ($scope) {
 		$scope.loadMore = function () {
 			currentPage = currentPage + 1;
 			ajaxCall(currentPage);
@@ -62,5 +72,5 @@ angular.module('imgurRandomApp')
 				currentPage = currentPage - 1;
 				ajaxCall(currentPage);
 			}
-		}
-	}]);
+		};
+	}])
