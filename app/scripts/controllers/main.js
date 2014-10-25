@@ -11,6 +11,7 @@
 var subreddit = 'cats';
 var imageArray;
 var currentPage = 0;
+var testing;
 function ajaxCall(page) {
 	$.ajax({
 	authorization: '8c4fdcec50df594',
@@ -27,8 +28,10 @@ function ajaxCall(page) {
 	success: function(json){
 		imageArray = [];
 		for (var i = 0; i < 60; i++) {		
-			imageArray[i] = json.data[i].link;
-			$('#imageContainer').append('<img style = "margin: 5px; height: auto; width: 200px" id = "galleryImages" src = ' + imageArray[i] + '>');
+			imageArray[i] = json.data[i].id;
+			testing = 'http://i.imgur.com/' + imageArray[i] + 'm.png';
+			// imageArray[i] = imageArray[i].replace(/"/g, "");
+			$('#imageContainer').append('<img style = "margin: 5px; height: auto; width: 200px" id = "galleryImages" src =' + testing + '>');
 		}
 	},
 	error: function(XMLHttpRequest, testStatus, errorThrown) {
