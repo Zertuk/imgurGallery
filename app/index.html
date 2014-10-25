@@ -21,7 +21,6 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
     <div ng-controller = 'SearchCtrl'>
       <div  class = "container">
         <form role = "form" ng-submit = "enterSubreddit()">
@@ -34,16 +33,22 @@
             </div>
           </div>
         </form>
-        <input checked = "checked" name = "sort" type = "radio">New</label>
-        <input name = "sort" type = "radio">Top</label>
+        <form ng-click = "subredditSort()">
+          <input ng-model = "sortBy" name = "sort" type = "radio" value = 'time'>New</label>
+          <input ng-model = "sortBy" checked = "true" name = "sort" type = "radio" value = 'top'>Top</label>
+        </form>
+      </div>
+      <div class = "test">
+        <row id = "imageContainer">
+          <div ng-repeat = "image in imageArray">{{image}}</div>
+        </row>
       </div>
     </div>
 
 
-      <div class = "test">
-        <row id = "imageContainer">
-        </row>
-      </div>
+
+
+
     <div ng-controller = "PageCtrl">
       <div class = "container">
         <input value = "Last" type = "submit" class = "btn btn-primary" ng-click = "loadPrevious()">

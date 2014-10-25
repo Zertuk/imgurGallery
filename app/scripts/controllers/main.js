@@ -10,8 +10,9 @@
 
 var subreddit = 'cats';
 var imageArray;
-var currentPage = 0;
+var currentPage = 1;
 var testing;
+var sortOrder = 'top';
 
 //ajax call for imgur api to get the gallery needed, temporary
 function ajaxCall(page) {
@@ -23,24 +24,24 @@ function ajaxCall(page) {
 		Authorization: 'Client-ID ' + '8c4fdcec50df594',
 		Accept: 'application/json'
 	},
-	url: 'https://api.imgur.com/3/gallery/r/' + subreddit + '/top/page/' + page + '.json',
+	url: 'https://api.imgur.com/3/gallery/r/' + subreddit + '/' + sortOrder + '/page/' + page + '.json',
 	data: {
 
 	},
 	success: function(json){
 		imageArray = [];
 		for (var i = 0; i < 60; i++) {		
-			imageArray[i] = json.data[i].id;
-			testing = 'http://i.imgur.com/' + imageArray[i] + 'm.png';
+			imageArray[i] = 'http://i.imgur.com/' + json.data[i].id + 'm.png';
+			// testing = 'http://i.imgur.com/' + imageArray[i] + 'm.png';
 			// imageArray[i] = imageArray[i].replace(/"/g, "");
-			$('#imageContainer').append('<img style = "margin: 5px; height: auto; width: 200px" id = "galleryImages" src =' + testing + '>');
+			$('#imageContainer').append('<img style = "margin: 5px; height: auto; width: 200px" id = "galleryImages" src =' + imageArray[i] + '>');
 		}
 	},
-	error: function(XMLHttpRequest, testStatus, errorThrown) {
+	error: function() {
 				alert('error');
 			}
 	});
-};
+}
 
 
 angular.module('imgurRandomApp')
@@ -51,7 +52,13 @@ angular.module('imgurRandomApp')
 			subreddit = $scope.subreddit;
 			currentPage = 0;
 			ajaxCall(currentPage);
+			$scope.imageArray = ['test', '1', '3'];
+			console.log($scope.imageArray);
 		};
+
+		$scope.subredditSort = function() {
+			sortOrder = $scope.sortBy;
+		}
 	}]);
 
 
@@ -65,7 +72,7 @@ angular.module('imgurRandomApp')
 
 		};
 		$scope.loadPrevious = function() {
-			if (currentPage == 0) {
+			if (currentPage === 0) {
 				alert('Already on First Page! Click Next!');
 			}
 			else {
@@ -73,4 +80,4 @@ angular.module('imgurRandomApp')
 				ajaxCall(currentPage);
 			}
 		};
-	}])
+	}]);
