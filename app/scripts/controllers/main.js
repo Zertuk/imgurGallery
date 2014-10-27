@@ -12,6 +12,7 @@
 var subreddit = 'cats';
 var imageArray;
 var currentPage = 0;
+var pagePlusOne;
 var testing;
 var sortOrder = 'top';
 
@@ -21,6 +22,8 @@ angular.module('imgurRandomApp')
 	.controller('SearchCtrl',['$scope', '$http', function ($scope, $http) {		
 
 		$scope.apiCall = function() {
+			pagePlusOne = currentPage + 1;
+			$scope.page = 'Page ' + pagePlusOne;
 			$http.defaults.headers.common['Authorization'] = 'Client-ID 8c4fdcec50df594';
 			$http.get('https://api.imgur.com/3/gallery/r/' + subreddit + '/' + sortOrder + '/page/' + currentPage + '.json', {headers: {'Authorization': 'Client-ID ' + '8c4fdcec50df594'}}).
 			success (function(json) {
