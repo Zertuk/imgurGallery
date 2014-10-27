@@ -40,17 +40,11 @@
       </div>
       <div class = "test">
         <row id = "imageContainer">
-          <div ng-repeat = "image in imageArray">{{image}}</div>
+          <img class = "galleryImage" ng-repeat = "x in imageArray" ng-src = "{{x}}"></img>
         </row>
       </div>
-    </div>
 
-
-
-
-
-    <div ng-controller = "PageCtrl">
-      <div class = "container">
+      <div class = "testing">
         <input value = "Last" type = "submit" class = "btn btn-primary" ng-click = "loadPrevious()">
         <input value = "Next" type = "submit" class = "btn btn-primary" ng-click = "loadMore()">
       </div>
