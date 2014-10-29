@@ -3,22 +3,70 @@ body {
   padding-bottom: 20px;
   font-family: 'Droid Sans', sans-serif;
   height: 100%;
-  background-color: #f5f5f5;
-
+  max-width: 100%;
+  background-color: #ececec;
 }
 
-.wrapper {
-  min-height: 500px;
+a {
+  text-decoration: none;
+  color: black;
+  text-align: center;
+}
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+p {
+  font-size: 14px;
 }
 
 .galleryImage {
-  padding: 10px;
+  max-width: 300px;
+  height: auto;
+  display: inline-block;
+  margin: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+
 }
 
-.centerText {
+.pageInfo {
   text-align: center;
+  margin-top: 20px;
 }
 
+.testage {
+  display: inline-block;
+  text-align: center;
+  width: 300px;
+  background-color: #f5f5f5;
+  border: 1px solid #e3e3e3;
+  margin: 10px;
+  padding-top: 5px;
+  -moz-transition: background-color .2s ease-in;
+  -o-transition: background-color .2s ease-in;
+  -webkit-transition: background-color .2s ease-in;
+}
+
+.testage:hover {
+  background-color:  #B0E0E6;
+}
+
+.date {
+  float: left;
+  margin-left: 10px;
+}
+
+.views {
+  float: right;
+  margin-right: 10px;
+}
+
+#pageCount {
+  margin-top: 30px;
+}
 /* Customize container */
 @media (min-width: 768px) {
   .container {
@@ -27,6 +75,11 @@ body {
 }
 .container-narrow > hr {
   margin: 30px 0;
+}
+
+.wrapper {
+  text-align: center;
+  margin-top: 10px;
 }
 
 /* Main marketing message and sign up button */

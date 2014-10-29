@@ -2,7 +2,7 @@
 <html class="no-js">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Subreddit Gallery</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -14,7 +14,21 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
     <!-- endbuild -->
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+
+
+    <!-- Add fancyBox -->
+    <link rel="stylesheet" href="/scripts/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+    <script type="text/javascript" src="/scripts/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+    <!-- Optionally add helpers - button, thumbnail and/or media -->
+    <link rel="stylesheet" href="/scripts/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
+    <script type="text/javascript" src="/scripts/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+
+
   </head>
   <body ng-app="imgurRandomApp">
     <!--[if lt IE 7]>
@@ -32,22 +46,30 @@
               </span>
             </div>
           </div>
+          
         </form>
         <form ng-click = "subredditSort()">
           <input ng-model = "sortBy" name = "sort" type = "radio" value = 'time'>New</label>
-          <input ng-model = "sortBy" checked = "true" name = "sort" type = "radio" value = 'top'>Top</label>
+          <input ng-model = "sortBy" checked = "true" name = "sort" type = "radio" value = 'top'>Top</label>          
         </form>
       </div>
-      <div class = "test">
-        <row id = "imageContainer">
-          <img class = "galleryImage" ng-repeat = "x in imageArray" ng-src = "{{x}}"></img>
-        </row>
+      <div class = "wrapper">
+          <div class = "testage" ng-repeat = "img in infoArray">
+            <a class = "fancybox" href = "{{img.link}}" title = "{{img.title}}">
+              <p>{{img.title}}</p>
+              <img class = "galleryImage" ng-src = "{{img.id}}"></img>
+              <div>
+                <p class = "date">{{img.datetime | date}}</p>
+                <p class = "views">Views: {{img.views}}</p>  
+              </div>         
+            </a>
+          </div>
       </div>
 
-      <div class = "testing">
+      <div class = "pageInfo">
         <input value = "Last" type = "submit" class = "btn btn-primary" ng-click = "loadPrevious()">
         <input value = "Next" type = "submit" class = "btn btn-primary" ng-click = "loadMore()">
-        <p>{{page}}</p>
+        <p id = "pageCount">{{page}}</p>
       </div>
 
     </div>
@@ -88,6 +110,14 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
+
+        <script type="text/javascript">
+          $(document).ready(function() {
+            $(".fancybox").fancybox();
+          });
+        </script>
+
+
         <!-- endbuild -->
 </body>
 </html>
