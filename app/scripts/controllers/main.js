@@ -34,7 +34,9 @@ angular.module('imgurRandomApp')
 				for (var i = 0; i < 60; i++) {
 					infoArray[i] = json.data[i];		
 					imageArray[i] = 'http://i.imgur.com/' + json.data[i].id + 'm.png';
+					infoArray[i].imgur_link = 'http://imgur.com/' + json.data[i].id;
 					infoArray[i].id = imageArray[i];
+					infoArray[i].reddit_comments = 'http://reddit.com' + infoArray[i].reddit_comments;
 					$scope.infoArray = infoArray;
 					$scope.imageArray = imageArray;
 					titleArray[i] = json.data[i].title;

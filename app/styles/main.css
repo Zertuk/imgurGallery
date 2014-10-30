@@ -18,7 +18,7 @@ a:hover {
 }
 
 p {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .galleryImage {
@@ -29,7 +29,6 @@ p {
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
-
 }
 
 .pageInfo {
@@ -38,6 +37,7 @@ p {
 }
 
 .testage {
+  border-radius: 10px;
   display: inline-block;
   text-align: center;
   width: 300px;
@@ -54,14 +54,52 @@ p {
   background-color:  #B0E0E6;
 }
 
+.title {
+  font-size: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 .date {
   float: left;
   margin-left: 10px;
 }
 
+.reddit {
+  float: left;
+  margin-left: 10px;
+  font-size: 20px;
+  display: inline;
+}
+
+.reddit:hover {
+  color: orange;
+}
+
+.imgur {
+
+  color:  #6EB727;
+  display: inline;
+}
+
+.imgur:hover {
+  color: green;
+}
+
+.imgurBox {
+  margin-left: 10px;
+  margin-top: 4px;
+  float: left;
+  display: inline;
+  background-color: black;
+  width: 20px;
+  border-radius: 3px;
+}
+
 .views {
   float: right;
   margin-right: 10px;
+  margin-top: 5px;
 }
 
 #pageCount {
