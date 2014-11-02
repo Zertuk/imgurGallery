@@ -7,15 +7,12 @@ body {
   background-color: #ececec;
 }
 
-.bigImg {
-  width: 700px;
-}
-
 a {
   text-decoration: none;
   color: black;
   text-align: center;
 }
+
 a:hover {
   text-decoration: none;
   color: black;
@@ -23,6 +20,21 @@ a:hover {
 
 p {
   font-size: 12px;
+}
+
+.recommend {
+  display: inline;
+  margin-right: 20px;
+  color: #4285f4;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+
+#suggest {
+  display: inline;
+  margin-right: 20px;
+  font-size: 14px;
 }
 
 .galleryImage {
@@ -111,6 +123,10 @@ p {
 #pageCount {
   margin-top: 30px;
 }
+
+
+
+
 /* Customize container */
 @media (min-width: 768px) {
   .container {

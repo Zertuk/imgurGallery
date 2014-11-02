@@ -52,6 +52,7 @@ angular.module('imgurRandomApp')
 					$scope.infoArray = infoArray;
 
 
+
 				}
 			}).
 			error (function() {
@@ -65,6 +66,12 @@ angular.module('imgurRandomApp')
 			currentPage = 0;
 			$scope.apiCall();			
 		};
+
+		$scope.recSubreddit = function(test) {
+			subreddit = test;
+			currentPage = 0;
+			$scope.apiCall();
+		}
 
 		$scope.subredditSort = function() {
 			sortOrder = $scope.sortBy;
