@@ -21,8 +21,20 @@ var linkArray = [];
 
 angular.module('imgurRandomApp')
 
+	.directive("bigger", function() {
+		return function (scope, element) {
+			element.bind("click", function() {
+				element.removeClass("galleryImage")
+				element.addClass("bigImg")
+			})
+		}
+	})
+
 //controls all input relating to searching: subreddit, new/top, order, page switch, and the api call
 	.controller('SearchCtrl',['$scope', '$http', function ($scope, $http) {		
+
+
+
 
 		$scope.apiCall = function() {
 			pagePlusOne = currentPage + 1;
@@ -38,11 +50,6 @@ angular.module('imgurRandomApp')
 					infoArray[i].id = imageArray[i];
 					infoArray[i].reddit_comments = 'http://reddit.com' + infoArray[i].reddit_comments;
 					$scope.infoArray = infoArray;
-					$scope.imageArray = imageArray;
-					titleArray[i] = json.data[i].title;
-					$scope.titleArray = titleArray;
-					linkArray[i] = json.data[i].link;
-					$scope.linkArray = linkArray;
 
 
 				}

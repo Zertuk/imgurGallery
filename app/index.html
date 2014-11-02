@@ -21,20 +21,12 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
 
 
-    <!-- Add fancyBox -->
-    <link rel="stylesheet" href="/scripts/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
-    <script type="text/javascript" src="/scripts/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-    <!-- Optionally add helpers - button, thumbnail and/or media -->
-    <link rel="stylesheet" href="/scripts/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
-    <script type="text/javascript" src="/scripts/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
-
-
   </head>
   <body ng-app="imgurRandomApp">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+
 
     <div ng-controller = 'SearchCtrl'>
       <div  class = "container">
@@ -46,9 +38,9 @@
                 <input value = "Search Subreddit" type = "submit" class = "btn btn-primary">
               </span>
             </div>
-          </div>
-          
+          </div>          
         </form>
+
         <form ng-click = "subredditSort()">
           <input ng-model = "sortBy" name = "sort" type = "radio" value = 'time'>New</label>
           <input ng-model = "sortBy" checked = "true" name = "sort" type = "radio" value = 'top'>Top</label>          
@@ -56,18 +48,16 @@
       </div>
       <div class = "wrapper">
           <div class = "testage" ng-repeat = "img in infoArray">
-            <a class = "fancybox" href = "{{img.link}}" title = "{{img.title}}">
               <p class = "title">{{img.title}}</p>
               <img class = "galleryImage" ng-src = "{{img.id}}"></img>
+  
               <div>
-<!--                 <p class = "date">{{img.datetime | date}}</p>
- -->            <p class = "views">Views: {{img.views}}</p>
+                <p class = "views">Views: {{img.views}}</p>
                 <div class = "imgurBox"><a title = "Imgur" class = "imgur" href = "{{img.imgur_link}}" target="_blank"><i class = "fa fa-circle"></i></a></div>
 
                 <a title = "Reddit" class = "reddit" href = "{{img.reddit_comments}}" target="_blank"><i class = "fa fa-reddit"></i></a>  
               </div>         
-            </a>
-          </div>
+            </div>
       </div>
 
       <div class = "pageInfo">
@@ -115,11 +105,6 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
 
-        <script type="text/javascript">
-          $(document).ready(function() {
-            $(".fancybox").fancybox();
-          });
-        </script>
 
 
         <!-- endbuild -->
