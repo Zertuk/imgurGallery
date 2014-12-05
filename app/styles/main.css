@@ -54,7 +54,7 @@ p {
   margin-top: 20px;
 }
 
-.testage {
+.imageHolder {
   border-radius: 10px;
   display: inline-block;
   text-align: center;
@@ -68,7 +68,7 @@ p {
   -webkit-transition: background-color .2s ease-in;
 }
 
-.testage:hover {
+.imageHolder:hover {
   background-color:  #B0E0E6;
 }
 
@@ -142,41 +142,12 @@ p {
   margin-top: 10px;
 }
 
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-}
-.jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
-}
 
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-}
-.marketing p + h4 {
-  margin-top: 28px;
-}
-
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
+@media (max-width: 500px) {
+  .imageHolder {
+    width: 90%;
   }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
+  .galleryImage {
+    width: 90%;
   }
 }
-
