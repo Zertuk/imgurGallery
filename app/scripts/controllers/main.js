@@ -89,5 +89,9 @@ angular.module('imgurRandomApp')
 				currentPage = currentPage - 1;
 				$scope.apiCall();			}
 		};
-
+		$scope.defaultSearch = function() {
+			subreddit = 'cats';
+			$scope.apiCall();
+		}
+		$scope.defaultSearch();
 	}]);
