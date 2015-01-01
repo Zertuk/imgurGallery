@@ -56,7 +56,7 @@ angular.module('imgurRandomApp')
 				}
 			}).
 			error (function() {
-				alert('Select a sort by option');
+				alert('Sort by not selected or no images found');
 
 			})
 		};
