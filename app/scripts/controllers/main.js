@@ -92,6 +92,7 @@ angular.module('imgurRandomApp')
 		$scope.defaultSearch = function() {
 			subreddit = 'cats';
 			$scope.apiCall();
+			$('.wrapper').show();
 		}
 		$scope.defaultSearch();
 	}]);
